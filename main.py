@@ -3,7 +3,6 @@ import asyncio
 from aiogram import Bot, Dispatcher, types
 from aiogram.contrib.middlewares.fsm import FSMContext
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
-from aiogram.dispatcher import FSMContext as OldFSMContext
 from aiogram.dispatcher.filters import Command
 from PIL import Image, ImageDraw, ImageFont
 import config
@@ -17,12 +16,12 @@ class CommandState:
     waiting_for_name = "waiting_for_name"
 
 @dp.message_handler(Command("start"))
-async def start(message: types.Message, state: OldFSMContext):
+async def start(message: types.Message, state: FSMContext):
     await message.answer("Привіт! Введи своє ім'я для генерації сертифіката:")
     await state.set_state(CommandState.waiting_for_name)
 
 @dp.message_handler(state=CommandState.waiting_for_name)
-async def handle_name(message: types.Message, state: OldFSMContext):
+async def handle_name(message: types.Message, state: FSMContext):
     user_name = message.text
 
     # Генерація сертифікату
