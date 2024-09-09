@@ -1,8 +1,8 @@
 import io
 import asyncio
 from aiogram import Bot, Dispatcher, types
-from aiogram.contrib.middlewares.fsm import FSMContext
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
+from aiogram.dispatcher import FSMContext
 from aiogram.dispatcher.filters import Command
 from PIL import Image, ImageDraw, ImageFont
 import config
