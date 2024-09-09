@@ -37,7 +37,7 @@ async def handle_name(message: types.Message, state: FSMContext):
         text_color = (0, 0, 0)
 
         # Позиція тексту імені
-        text_position = (130, 560)
+        text_position = (150, 670)
         draw.text(text_position, user_name, font=font, fill=text_color)
 
         image_buffer = io.BytesIO()
