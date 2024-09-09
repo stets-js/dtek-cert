@@ -43,7 +43,7 @@ pyinstaller==6.10.0
 pyinstaller-hooks-contrib==2024.8
 pystray==0.19.5
 pytz==2024.1
-pywin32==306
+pywin32
 pywin32-ctypes==0.2.3
 requests==2.32.3
 rfc3986==1.5.0
