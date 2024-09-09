@@ -29,7 +29,7 @@ async def handle_name(message: types.Message, state: FSMContext):
     
     await asyncio.sleep(1)
 
-    with Image.open("dtek.jpg") as im:
+    with Image.open("CertificateDtek.jpg") as im:
         draw = ImageDraw.Draw(im)
         font_path = "MontserratAlternates-Regular.ttf"
         
