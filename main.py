@@ -29,15 +29,25 @@ async def handle_name(message: types.Message, state: FSMContext):
     
     await asyncio.sleep(1)
 
-    with Image.open("CertificateDtek.jpg") as im:
+    with Image.open("valley.jpg") as im:
         draw = ImageDraw.Draw(im)
-        font_path = "MontserratAlternates-Regular.ttf"
+        font_path = "OpenSans-SemiBold.ttf"
         
-        font = ImageFont.truetype(font_path, 64)
-        text_color = (0, 0, 0)
+        font = ImageFont.truetype(font_path, 34)
+        text_color = (255, 255, 255)
 
-        # Позиція тексту імені
-        text_position = (150, 670)
+        # Отримання розмірів зображення
+        image_width, image_height = im.size
+
+        # Отримання розміру тексту через textbbox (bounding box)
+        text_bbox = draw.textbbox((0, 0), user_name, font=font)
+        text_width = text_bbox[2] - text_bbox[0]
+        text_height = text_bbox[3] - text_bbox[1]
+
+        # Обчислення позиції для центрування тексту
+        text_position = ((image_width - text_width) // 2, 350)
+
+        # Малювання тексту
         draw.text(text_position, user_name, font=font, fill=text_color)
 
         image_buffer = io.BytesIO()
